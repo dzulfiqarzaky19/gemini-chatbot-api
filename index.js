@@ -31,10 +31,8 @@ app.post("/api/chat", async (req, res) => {
 
     const geminiResponse = await geminiChatServices({ contents });
 
-    console.log({ geminiResponse });
-
     res.json({
-      result: geminiResponse,
+      result: geminiResponse || "Sorry, no response received.",
     });
   } catch (error) {
     console.error("Error handling request:", error);
